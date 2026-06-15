@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rana Hoodie — Premium Pakistani Streetwear</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --black:   #0a0a0a;
+      --white:   #f5f3ef;
+      --accent:  #c8ff00;
+      --mid:     #1a1a1a;
+      --muted:   #6b6b6b;
+      --card:    #111111;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 48px;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+      border-bottom: 1px solid #222;
+    }
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      letter-spacing: 3px;
+      color: var(--white);
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a {
+      color: var(--muted); font-size: 13px; font-weight: 500;
+      text-decoration: none; letter-spacing: 1.5px; text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: flex-start;
+      padding: 140px 48px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: 'RH';
+      position: absolute; right: -40px; top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(220px, 28vw, 420px);
+      color: #ffffff05;
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+    .hero-tag {
+      font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--accent); font-weight: 600; margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(64px, 12vw, 160px);
+      line-height: 0.92;
+      letter-spacing: 2px;
+      margin-bottom: 32px;
+      max-width: 780px;
+    }
+    .hero h1 em { color: var(--accent); font-style: normal; }
+    .hero p {
+      font-size: 16px; color: var(--muted); max-width: 440px;
+      margin-bottom: 48px; line-height: 1.8;
+    }
+    .btn-row { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn {
+      padding: 16px 40px; font-size: 12px; font-weight: 600;
+      letter-spacing: 2px; text-transform: uppercase;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: all 0.25s;
+    }
+    .btn-primary { background: var(--accent); color: var(--black); }
+    .btn-primary:hover { background: #d4ff33; transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent; color: var(--white);
+      border: 1px solid #333;
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── MARQUEE ── */
+    .marquee-wrap {
+      background: var(--accent); padding: 14px 0;
+      overflow: hidden; white-space: nowrap;
+    }
+    .marquee-track {
+      display: inline-flex; gap: 0;
+      animation: marquee 18s linear infinite;
+    }
+    .marquee-track span {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px; letter-spacing: 4px; color: var(--black);
+      padding: 0 36px;
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ── SECTION SHARED ── */
+    section { padding: 100px 48px; }
+    .section-label {
+      font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--accent); font-weight: 600; margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(42px, 6vw, 80px);
+      line-height: 1; margin-bottom: 60px;
+    }
+
+    /* ── PRODUCTS ── */
+    #products { background: var(--mid); }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2px;
+    }
+    .product-card {
+      background: var(--card);
+      padding: 48px 36px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+      cursor: pointer;
+    }
+    .product-card:hover { background: #1a1a1a; }
+    .product-card::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0;
+      height: 3px; width: 0; background: var(--accent);
+      transition: width 0.4s;
+    }
+    .product-card:hover::after { width: 100%; }
+    .product-icon {
+      font-size: 48px; margin-bottom: 24px; display: block;
+    }
+    .product-card h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px; letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+    .product-card p { color: var(--muted); font-size: 14px; line-height: 1.7; }
+    .product-price {
+      margin-top: 24px; font-size: 13px; font-weight: 600;
+      color: var(--accent); letter-spacing: 1px;
+    }
+
+    /* ── WHY US ── */
+    #why { background: var(--black); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 40px;
+    }
+    .why-item { border-top: 1px solid #222; padding-top: 28px; }
+    .why-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 52px; color: var(--accent);
+      line-height: 1; margin-bottom: 8px;
+    }
+    .why-item h4 {
+      font-size: 15px; font-weight: 600; margin-bottom: 8px;
+    }
+    .why-item p { color: var(--muted); font-size: 13px; line-height: 1.7; }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--mid); text-align: center; }
+    #contact .section-title { margin-bottom: 20px; }
+    #contact p { color: var(--muted); max-width: 500px; margin: 0 auto 48px; font-size: 15px; }
+    .contact-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .contact-chip {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 28px; border: 1px solid #333;
+      color: var(--white); text-decoration: none; font-size: 13px;
+      font-weight: 500; letter-spacing: 1px;
+      transition: all 0.25s;
+    }
+    .contact-chip:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black); padding: 40px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid #1a1a1a; flex-wrap: wrap; gap: 16px;
+    }
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px; letter-spacing: 3px;
+    }
+    .footer-logo span { color: var(--accent); }
+    footer p { color: var(--muted); font-size: 12px; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 640px) {
+      nav { padding: 18px 24px; }
+      .nav-links { display: none; }
+      .hero { padding: 120px 24px 60px; }
+      section { padding: 70px 24px; }
+      footer { padding: 30px 24px; flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">RANA<span>.</span>HOODIE</div>
+    <ul class="nav-links">
+      <li><a href="#products">Products</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-tag">🇵🇰 Premium Pakistani Streetwear</p>
+    <h1>WEAR THE<br/><em>STREETS.</em></h1>
+    <p>Bold designs. Premium fabric. Built for the streets of Pakistan — and everywhere else.</p>
+    <div class="btn-row">
+      <a href="#products" class="btn btn-primary">Shop Now</a>
+      <a href="#contact" class="btn btn-outline">Contact Us</a>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span>RANA HOODIE</span><span>PREMIUM QUALITY</span><span>PAKISTANI STREETWEAR</span>
+      <span>ESSENTIALS HOODIES</span><span>T-SHIRTS</span><span>STREET COLLECTION</span>
+      <span>RANA HOODIE</span><span>PREMIUM QUALITY</span><span>PAKISTANI STREETWEAR</span>
+      <span>ESSENTIALS HOODIES</span><span>T-SHIRTS</span><span>STREET COLLECTION</span>
+    </div>
+  </div>
+
+  <!-- PRODUCTS -->
+  <section id="products">
+    <p class="section-label">Our Collection</p>
+    <h2 class="section-title">PRODUCTS</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <span class="product-icon">🧥</span>
+        <h3>Essentials Hoodies</h3>
+        <p>Heavy-weight premium fleece. Oversized fit. Perfect for Pakistani winters and street style year-round.</p>
+        <div class="product-price">Starting from PKR 3,500</div>
+      </div>
+      <div class="product-card">
+        <span class="product-icon">👕</span>
+        <h3>T-Shirts</h3>
+        <p>100% cotton, drop-shoulder cut. Graphic and plain options. Made to move with you.</p>
+        <div class="product-price">Starting from PKR 1,800</div>
+      </div>
+      <div class="product-card">
+        <span class="product-icon">🔥</span>
+        <h3>Streetwear Collection</h3>
+        <p>Full co-ord sets, cargo pants, and limited drops. New designs every season.</p>
+        <div class="product-price">Starting from PKR 5,000</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section id="why">
+    <p class="section-label">Why Rana Hoodie</p>
+    <h2 class="section-title">BUILT DIFFERENT</h2>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-num">01</div>
+        <h4>Premium Fabric</h4>
+        <p>We use only high-quality materials — soft inside, durable outside, wash after wash.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-num">02</div>
+        <h4>Pakistani Made</h4>
+        <p>Designed and crafted in Pakistan. Supporting local and wearing local.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-num">03</div>
+        <h4>Affordable Price</h4>
+        <p>Premium look without the premium price tag. Real streetwear for real people.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-num">04</div>
+        <h4>Fast Delivery</h4>
+        <p>Nationwide delivery across Pakistan. Order today, wear soon.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <p class="section-label">Get In Touch</p>
+    <h2 class="section-title">ORDER NOW</h2>
+    <p>Slide into our DMs to place an order or ask anything. We reply fast.</p>
+    <div class="contact-links">
+      <a href="https://instagram.com/ranahoodie" class="contact-chip" target="_blank">
+        📸 Instagram
+      </a>
+      <a href="https://wa.me/923001234567" class="contact-chip" target="_blank">
+        💬 WhatsApp
+      </a>
+      <a href="mailto:info@ranahoodie.com" class="contact-chip">
+        ✉️ Email Us
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">RANA<span>.</span>HOODIE</div>
+    <p>© 2026 Rana Hoodie — Premium Pakistani Streetwear</p>
+  </footer>
+
+</body>
+</html>
