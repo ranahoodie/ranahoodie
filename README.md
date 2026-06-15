@@ -1,16 +1,14 @@
-## Hi there 👋
+# Rana Hoodie
 
-<!--
-**ranahoodie/ranahoodie** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Premium Pakistani Streetwear Fashion Brand
 
-Here are some ideas to get you started:
+## Products
+- Essentials Hoodies
+- T-Shirts
+- Streetwear Collection
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## Website
+Fashion brand based in Pakistan offering premium quality apparel and modern designs.
+
+## Contact
+WhatsApp: +92 327 7495196
